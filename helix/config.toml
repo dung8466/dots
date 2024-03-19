@@ -1,0 +1,46 @@
+theme = "mytheme"
+
+[editor]
+cursorline = true
+scroll-lines = 1
+completion-replace = false
+idle-timeout = 100
+true-color = true
+color-modes = true
+line-number = "relative"
+scrolloff = 10
+bufferline = "multiple"
+
+[editor.file-picker]
+hidden = true
+
+[editor.statusline]
+left = ["mode","spacer", "spinner", "spacer" ,"version-control", "file-name", "file-modification-indicator"]
+right = ["diagnostics", "version-control", "selections", "position", "total-line-numbers", "file-encoding", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+
+[editor.soft-wrap]
+enable = true
+
+[keys.normal]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-n = ["scroll_down"]
+C-p = ["scroll_up"]
+
+[keys.normal.space]
+W = ":write"
+
+[keys.insert]
+j = { k = "normal_mode" }

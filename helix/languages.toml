@@ -1,0 +1,49 @@
+[[language]]
+name = "go"
+scope = "source.go"
+injection-regex = "go"
+file-types = ["go"]
+roots = ["go.mod"]
+auto-format = true
+comment-token = "//"
+formatter = { command = "goimports" }
+indent = { tab-width = 4, unit = "\t"}
+
+[[language]]
+name = "rust"
+
+[language-server.rust-analyzer.config]
+check = { command = "clippy", features = "all" }
+diagnostics = { experimental = { enable = true } }
+hover = { actions = { enable = true } }
+typing = { autoClosingAngleBrackets = { enable = true } }
+cargo = { allFeatures = true }
+procMacro = { enable = true }
+
+[[language]]
+name = "json"
+language-servers = [ "vscode-json-language-server" ]
+formatter = { command = 'npx', args = ["prettier", "--parser", "json"] }
+indent = { tab-width = 4, unit = "\t" }
+auto-format = true
+
+[[language]]
+name = "lua"
+indent = { tab-width = 4, unit = "\t" }
+auto-format = true
+
+[language-server.vscode-json-language-server.config]
+json = { validate = { enable = true }, format = { enable = true } }
+provideFormatter = true
+
+[language-server.sql-language-server]
+command = "sql-language-server"
+args = ["up", "--method", "stdio"]
+
+[[language]]
+name = "sql"
+language-servers = [ "sql-language-server" ]
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
