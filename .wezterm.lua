@@ -10,6 +10,12 @@ local config = wezterm.config_builder()
 config.color_scheme = 'Bamboo'
 
 config.font = wezterm.font 'IosevkaTerm Nerd Font'
+
+config.font_size = 14
+
+config.hide_tab_bar_if_only_one_tab = true
+
+config.enable_scroll_bar = true
 --
 -- -- and finally, return the configuration to wezterm
 return config
